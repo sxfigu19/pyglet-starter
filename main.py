@@ -8,7 +8,9 @@ label = pyglet.text.Label('Hello, Player!',
                           anchor_x='center', anchor_y='center')
 @window.event
 def on_draw():
-    window.clear()
-    label.draw()
+    win.clear()
+    img.blit(200, 100)
+    # spr.draw()
 
+pyglet.clock.schedule(update) 
 pyglet.app.run()

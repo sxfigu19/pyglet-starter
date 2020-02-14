@@ -1,20 +1,22 @@
-import pyglet # import the library
-win = pyglet.window.Window() # create the window
+import pyglet
+from util import *
 
-# Load the image
+win = pyglet.window.Window()
+# Load the image & create the sprite
 img = pyglet.image.load('assets/hero/Old hero.png')
+spr = pyglet.sprite.Sprite(img, x = 100, y = 200)
 
-# spr = pyglet.sprite.Sprite(img, x=50, y=50)
 
-# Start the event loop
 def update(dt):
   pass
 
 @win.event
 def on_draw():
-    win.clear()
-    img.blit(200, 100)
-    # spr.draw()
+  win.clear()
+  # pixelScale()
 
-pyglet.clock.schedule(update) 
+  spr.draw()
+
+pyglet.clock.schedule(update)
 pyglet.app.run()
+

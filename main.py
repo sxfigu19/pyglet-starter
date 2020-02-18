@@ -16,7 +16,6 @@ img= pyglet.image.load('assets/hero/sliced/surprise.png')
 spr2 = pyglet.sprite.Sprite(img, x = 150, y = 20,)
 spr2.scale = 10
 
-
 # Get the key state handler object
 keys = pyglet.window.key.KeyStateHandler()
 
@@ -26,17 +25,27 @@ def update(dt):
         print("Spacebar pressed!")
     if keys[pyglet.window.key.UP]:
         print("Up key pressed!")
+        spr2.y+=1
+    if keys[pyglet.window.key.DOWN]:
+        print("Down key pressed!")
+        spr2.y-=1
+    if keys[pyglet.window.key.LEFT]:
+        print("Left key pressed!")
+        spr2.x-=1
+    if keys[pyglet.window.key.RIGHT]:
+        print("Right key pressed!")
+        spr2.x+=1
 
 @win.event
 def on_draw():
     util.pixelScale()
     win.clear()
     #img.blit(200, 100)
+    spr1.draw()
+    spr2.draw()
     label.draw()
     labeltwo.draw()
     labelthree.draw()
-    spr1.draw()
-    spr2.draw()
 
 pyglet.clock.schedule(update)
 pyglet.app.run()
